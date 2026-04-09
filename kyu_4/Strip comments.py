@@ -20,27 +20,23 @@ bananas
 
 """
     print(f"string: \n{strng}\nmarkers: {markers}")
-    
+
+    if not markers:
+        return strng
     #pattern to remove everything after markers upto new line
-    patterns = []
-    for marker in markers:
-        pattern = re.escape(marker) + r"[^\n]*"
-        patterns.append(pattern)
+    #add escape characters and join them to a single string
+    formatted_markers = "".join(map(re.escape, markers))
+    pattern = r"[{}][^\n]*".format(formatted_markers)
+    
         
     sentences = strng.split("\n")
-    
     formatted_sentences = []
      
     #for each line, apply the regex pattern (remove everything after marker), remove ending whitespace, and add to list
     for sentence in sentences:
-        for pattern in patterns:
-            sentence = re.sub(pattern, "", sentence).rstrip()
-        
+        sentence = re.sub(pattern, "", sentence).rstrip()
         
         formatted_sentences.append(sentence)
-
-    #join them all to a single string adding "\n"
-    return "\n".join(formatted_sentences)
 
 string = "  oranges watermelons lemons pears bananas =\noranges ? apples watermelons ' strawberries\n@ bananas pears - ! apples"
 markers = ['!', ',', "'", '.', '-', '@', '=']
