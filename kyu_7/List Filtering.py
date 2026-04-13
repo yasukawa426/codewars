@@ -1,4 +1,4 @@
-def filter_list(l):
+def filter_list(l):  # noqa: E741
     list = []
     
     for element in l:
