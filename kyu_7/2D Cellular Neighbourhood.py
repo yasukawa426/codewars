@@ -2,6 +2,9 @@ def get_moore(mat: list[list[int]], coordinates: tuple[int, int]) -> list[int]:
     x, y = coordinates
     nbr: list[int] = []
 
+    row = len(mat)
+    col = len(mat[0])
+
     for i in range (x-1, x+2):
         print (f"for x value {x} : in {i}")
 
@@ -11,23 +14,23 @@ def get_moore(mat: list[list[int]], coordinates: tuple[int, int]) -> list[int]:
             
             nbr.append(mat[i][y])
 
-            if y + 1 < len(mat[0]):
+            if y + 1 < col:
                 nbr.append(mat[i][y+1])
         
         if i == x:
             if y - 1 >= 0:
                 nbr.append(mat[i][y-1])
 
-            if y + 1 < len(mat[0]):
+            if y + 1 < col:
                 nbr.append(mat[i][y+1])
         
-        if i == x+1 and i < len(mat):
+        if i == x+1 and i < row:
             if y - 1 >= 0:
                 nbr.append(mat[i][y-1])
             
             nbr.append(mat[i][y])
 
-            if y + 1 < len(mat[0]):
+            if y + 1 < col:
                 nbr.append(mat[i][y+1])
             
     return nbr
