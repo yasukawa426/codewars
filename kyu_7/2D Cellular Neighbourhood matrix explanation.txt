@@ -1,0 +1,17 @@
+[ [], [], [], [],]
+
+(x, y)
+|(0,0), (0, 1), (0, 2)	|
+|(1,0), (1, 1), (1, 2)	|
+|(2,0), (2, 1), (2, 2)	|
+|(3,0), (3, 1), (3, 2)	|
+
+
+Moore neighborhood are eight cells which surround a given cell - A.K.A, all the 8 that surround it - 
+for x-1 -> y-1, y and y+1
+for x -> y-1 and y+1
+for x+1 -> y-1, y and y+1
+
+ 
+The Von Neumann neighborhood are four cells which share a border with the given cell - A.K.A, all the directly up, down, left and right -
+get (x-1, y), (x, y-1), (x, y+1), (x+1, y)
